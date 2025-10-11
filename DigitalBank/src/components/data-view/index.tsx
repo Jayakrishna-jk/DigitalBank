@@ -5,13 +5,13 @@ import { Button } from "../ui/button"
 import { Calendar } from "../ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu"
-import { CalendarIcon, Download, Share2 } from "lucide-react"
+import { CalendarIcon, Download, Share2, ChevronLeft, ChevronRight } from "lucide-react"
 import { format } from "date-fns"
 import * as XLSX from 'xlsx'
 import jsPDF from 'jspdf'
 import 'jspdf-autotable'
 
-const DataView = ({ data, columns, search = false, paginations = false, dateRange = false }: any) => {
+const DataView = ({ title, data, columns, search = false, paginations = false, dateRange = false }: any) => {
     const [searchText, setSearchText] = useState("")
     const [currentPage, setCurrentPage] = useState(1)
     const [dateFrom, setDateFrom] = useState<Date | undefined>()
@@ -88,6 +88,8 @@ const DataView = ({ data, columns, search = false, paginations = false, dateRang
 
     return (
         <div className="max-w-7xl mx-auto space-y-4 p-6">
+            <h3 className='text-2xl font-semibold tracking-tight'>{title}</h3>
+
             <div className="flex md:flex-row flex-col gap-4 items-center justify-between">
                 {search && (
                     <Input
@@ -136,6 +138,7 @@ const DataView = ({ data, columns, search = false, paginations = false, dateRang
                                         selected={dateFrom}
                                         onSelect={setDateFrom}
                                         initialFocus
+                                        data-testid="date-range"
                                     />
                                 </PopoverContent>
                             </Popover>
@@ -152,6 +155,7 @@ const DataView = ({ data, columns, search = false, paginations = false, dateRang
                                         selected={dateTo}
                                         onSelect={setDateTo}
                                         initialFocus
+                                        data-testid="date-range"
                                     />
                                 </PopoverContent>
                             </Popover>
@@ -165,7 +169,7 @@ const DataView = ({ data, columns, search = false, paginations = false, dateRang
                         <TableRow>
                             {
                                 columns?.map((column: any) => (
-                                    <TableHead key={column.id}>{column.text}</TableHead>
+                                    <TableHead role="columnheader" key={column.id}>{column.text}</TableHead>
                                 ))
                             }
                         </TableRow>
@@ -183,7 +187,8 @@ const DataView = ({ data, columns, search = false, paginations = false, dateRang
                             )) : (
                                 <TableRow>
                                     <TableCell colSpan={columns?.length} className="text-center">
-                                        No data available
+                                        <img src="/not-found.svg" alt="no-data-found" width={150} className="mx-auto img-fluid mb-2" />
+                                        Oops! Nothing here yet.
                                     </TableCell>
                                 </TableRow>
                             )
@@ -196,14 +201,14 @@ const DataView = ({ data, columns, search = false, paginations = false, dateRang
                     <span className="text-sm">
                         Page {currentPage} of {totalPages}
                     </span>
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-center space-x-2" data-testid="pagination">
                         <Button
                             variant="outline"
                             size="sm"
                             onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
                             disabled={currentPage === 1}
                         >
-                            Previous
+                           <ChevronLeft/> Previous
                         </Button>
                         <Button
                             variant="outline"
@@ -211,7 +216,7 @@ const DataView = ({ data, columns, search = false, paginations = false, dateRang
                             onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
                             disabled={currentPage === totalPages}
                         >
-                            Next
+                           Next <ChevronRight/>
                         </Button>
                     </div>
                 </div>

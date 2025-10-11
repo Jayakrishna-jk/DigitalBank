@@ -1,8 +1,8 @@
+import { Label } from '@radix-ui/react-dropdown-menu'
 import { Input } from '../ui/input'
-import { Button } from '../ui/button'
 import { Link } from 'react-router-dom'
 
-export default function DetailForm({ title, fields, buttons, table }: any) {
+export default function DetailForm({ title, fields, buttons }: any) {
     return (
         <div className='max-w-7xl mx-auto p-6'>
             <div className='flex md:flex-row flex-col items-center justify-between gap-4 mb-6'>
@@ -14,7 +14,7 @@ export default function DetailForm({ title, fields, buttons, table }: any) {
                                 className='cursor-pointer border p-2 rounded-md text-sm'
                                 key={button.id}
                                 to={button.to}
-                                >
+                            >
                                 {button.text}
                             </Link>
                         ))
@@ -29,6 +29,8 @@ export default function DetailForm({ title, fields, buttons, table }: any) {
                             key={field.id}
                             type={field.type}
                             placeholder={field.placeholder}
+                            name={field.name}
+                            value={field.value}
                         />
                     ))
                 }
