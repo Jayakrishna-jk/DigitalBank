@@ -21,43 +21,133 @@
   ],
   "accounts": [
     {
-      "id": 1,
+      "id": "1",
       "holderName": "Jaya Krishna",
       "accountType": "Savings",
       "accountNumber": "1234567890",
-      "balance": 25000
+      "balance": 199900,
+      "phoneNumber": "8074262779",
+      "creationDate": "1-11-2025",
+      "email": "jayakrishna@example.com",
+      "transactionDate": "2025-10-11T14:21:53.220Z",
+      "transactions": [
+        {
+          "id": 1760187740719,
+          "type": "debit",
+          "amount": 200,
+          "transactionDate": "2025-10-11T13:02:20.719Z",
+          "remarks": "Transferred to 9876543210"
+        },
+        {
+          "id": 1760189080859,
+          "type": "debit",
+          "amount": 100,
+          "transactionDate": "2025-10-11T13:24:40.859Z",
+          "remarks": "Transferred to 9876543210"
+        },
+        {
+          "id": 1760189230368,
+          "type": "debit",
+          "amount": 30000,
+          "transactionDate": "2025-10-11T13:27:10.368Z",
+          "remarks": "Transferred to 9876543210"
+        },
+        {
+          "id": 1760189237086,
+          "type": "debit",
+          "amount": 100,
+          "transactionDate": "2025-10-11T13:27:17.086Z",
+          "remarks": "Transferred to 9876543210"
+        },
+        {
+          "id": 1760192513220,
+          "type": "debit",
+          "amount": 100,
+          "transactionDate": "2025-10-11T14:21:53.220Z",
+          "remarks": "Transferred to 9876543210"
+        }
+      ]
     },
     {
-      "id": 2,
-      "holderName": "Anita Rao",
+      "id": "2",
+      "holderName": "Jaya Krishna",
       "accountType": "Current",
       "accountNumber": "9876543210",
-      "balance": 48000
+      "balance": 97045,
+      "phoneNumber": "8074262779",
+      "creationDate": "20-11-2025",
+      "email": "jayakrishna@example.com",
+      "transactions": [
+        {
+          "id": 1760187740719,
+          "type": "debit",
+          "amount": 200,
+          "transactionDate": "2025-10-11T13:02:20.719Z",
+          "remarks": "Transferred to 9876543210"
+        },
+        {
+          "id": 1760189080859,
+          "type": "debit",
+          "amount": 100,
+          "transactionDate": "2025-10-11T13:24:40.859Z",
+          "remarks": "Transferred to 9876543210"
+        },
+        {
+          "id": 1760189230368,
+          "type": "debit",
+          "amount": 30000,
+          "transactionDate": "2025-10-11T13:27:10.368Z",
+          "remarks": "Transferred to 9876543210"
+        },
+        {
+          "id": 1760189237086,
+          "type": "debit",
+          "amount": 100,
+          "transactionDate": "2025-10-11T13:27:17.086Z",
+          "remarks": "Transferred to 9876543210"
+        },
+        {
+          "id": 1760192513241,
+          "type": "credit",
+          "amount": 100,
+          "transactionDate": "2025-10-11T14:21:53.220Z",
+          "remarks": "Transferred to 9876543210"
+        }
+      ],
+      "transactionDate": "2025-10-11T14:21:53.220Z"
     },
     {
-      "id": 3,
-      "holderName": "chandini",
-      "accountType": "Current",
-      "accountNumber": "9876543210",
-      "balance": 6000
+      "id": "3",
+      "holderName": "Jaya Krishna",
+      "accountType": "INVESTMENT",
+      "accountNumber": "9876543290",
+      "balance": 6000,
+      "phoneNumber": "8074262779",
+      "creationDate": "10-12-2025",
+      "email": "jayakrishna@example.com",
+      "transactions": []
     },
     {
-      "id": 3,
-      "holderName": "krishna",
-      "accountType": "Current",
+      "id": "4",
+      "holderName": "Jaya Krishna",
+      "accountType": "STOCKS",
       "accountNumber": "9876543900",
-      "balance": 9000
+      "balance": 9000,
+      "phoneNumber": "8074262779",
+      "creationDate": "10-1-2025",
+      "email": "jayakrishna@example.com",
+      "transactions": []
     }
   ],
   "beneficiaries": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Ravi Kumar",
       "accountNumber": "1234567890",
       "bank": "HDFC Bank"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Anita Sharma",
       "accountNumber": "9876543210",
       "bank": "ICICI Bank"
@@ -67,6 +157,19 @@
       "name": "jaya",
       "accountNumber": "09999999",
       "bank": "IDFC"
+    },
+    {
+      "id": "acd7",
+      "name": "jaya",
+      "accountNumber": "099999988",
+      "bank": "post"
+    },
+    {
+      "id": "301f",
+      "name": "jaya",
+      "accountNumber": "099999998",
+      "bank": "post"
     }
-  ]
+  ],
+  "transactions": []
 }
