@@ -1,5 +1,6 @@
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
+import { Link } from 'react-router-dom'
 
 export default function DetailForm({ title, fields, buttons, table }: any) {
     return (
@@ -9,15 +10,13 @@ export default function DetailForm({ title, fields, buttons, table }: any) {
                 <div className='flex items-center justify-end gap-2'>
                     {
                         buttons?.map((button: any) => (
-                            <Button
-                                className='cursor-pointer'
+                            <Link
+                                className='cursor-pointer border p-2 rounded-md text-sm'
                                 key={button.id}
-                                onClick={()=> button.onClick}
-                                size='sm'
-                                type={button.type}
-                                variant={button.variant}>
+                                to={button.to}
+                                >
                                 {button.text}
-                            </Button>
+                            </Link>
                         ))
                     }
                 </div>

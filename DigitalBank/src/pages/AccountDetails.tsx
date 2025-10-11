@@ -44,8 +44,8 @@ export default function AccountDetails() {
         ]}
 
         buttons={[
-          { id: 1, text: ' View Beneficiaries', type: 'submit', variant: 'outline', onClick: () => navigate('/dashboard') },
-          { id: 2, text: 'Fund Transfer', type: 'submit', variant: 'outline', onClick: () => navigate('/bankSummaryDetails') }
+          { id: 1, text: ' View Beneficiaries', to: '/dashboard' },
+          { id: 2, text: 'Fund Transfer', to: '/bankSummaryDetails' }
         ]}
       />
       <DataView
