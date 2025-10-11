@@ -18,5 +18,55 @@
       "password": "Krishna123@",
       "role": "admin"
     }
+  ],
+  "accounts": [
+    {
+      "id": 1,
+      "holderName": "Jaya Krishna",
+      "accountType": "Savings",
+      "accountNumber": "1234567890",
+      "balance": 25000
+    },
+    {
+      "id": 2,
+      "holderName": "Anita Rao",
+      "accountType": "Current",
+      "accountNumber": "9876543210",
+      "balance": 48000
+    },
+    {
+      "id": 3,
+      "holderName": "chandini",
+      "accountType": "Current",
+      "accountNumber": "9876543210",
+      "balance": 6000
+    },
+    {
+      "id": 3,
+      "holderName": "krishna",
+      "accountType": "Current",
+      "accountNumber": "9876543900",
+      "balance": 9000
+    }
+  ],
+  "beneficiaries": [
+    {
+      "id": 1,
+      "name": "Ravi Kumar",
+      "accountNumber": "1234567890",
+      "bank": "HDFC Bank"
+    },
+    {
+      "id": 2,
+      "name": "Anita Sharma",
+      "accountNumber": "9876543210",
+      "bank": "ICICI Bank"
+    },
+    {
+      "id": "591c",
+      "name": "jaya",
+      "accountNumber": "09999999",
+      "bank": "IDFC"
+    }
   ]
 }

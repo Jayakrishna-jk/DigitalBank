@@ -3,6 +3,8 @@
 import { lazy } from "react";
 import type { RouteObject } from "react-router-dom";
 import Home from "../pages/Home";
+import BankSummaryTable from "../components/BankSummaryTable";
+import FundTransferForm from "../components/FundTransfer";
 
 const LoginForm = lazy(() => import("../pages/Login"));
 // const Home = lazy(() => import("../pages/Home"));
@@ -19,6 +21,19 @@ export const router: RouteObject[] = [
     //   </ProtectedRoute>
     ),
   },
+  {
+    path:'/dashboard',
+    element:(
+        <BankSummaryTable />
+    )
+  },
+  {
+    path:'/bankSummaryDetails',
+    element:(
+        <FundTransferForm />
+    )
+
+  }
 //   {
 //     path: "/unauthorized",
 //     element: (

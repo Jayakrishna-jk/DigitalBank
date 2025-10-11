@@ -24,7 +24,7 @@ const userRole="user";
             {userRole === "user" && (
               <>
             <li><Link to="/dashboard" className="hover:underline">Dashboard</Link></li>
-            <li><Link to="/summary" className="hover:underline">Account Summary</Link></li>
+            {/* <li><Link to="/summary" className="hover:underline">Account Summary</Link></li> */}
             {/* <li><Link to="/investments" className="hover:underline">Investments</Link></li>
             <li><Link to="/reports" className="hover:underline">Reports</Link></li>
             <li><Link to="/calculator" className="hover:underline">Roi Calculator</Link></li>

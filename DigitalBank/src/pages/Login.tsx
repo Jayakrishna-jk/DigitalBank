@@ -5,11 +5,11 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Button from "../components/Button";
-// import { loginSuccess } from "../../features/authSlice";
+import { loginSuccess } from "../Store/Slices/authSlice";
 
 
 const LoginForm = () => {
-//   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const initialValues = {
@@ -50,7 +50,7 @@ const LoginForm = () => {
       // }
 
       const username = user.email.split("@");
-    //   dispatch(loginSuccess({ role: user.role, user, username: username[0] }));
+      dispatch(loginSuccess({ role: user.role, user, username: username[0] }));
       toast.success("Login successful!");
       // dispatch(setAccountData({ balance: user.balance, transactions: user.transactions }));
       localStorage.setItem("user", JSON.stringify(user));
