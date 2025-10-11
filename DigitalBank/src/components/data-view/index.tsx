@@ -8,8 +8,8 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { CalendarIcon, Download, Share2, ChevronLeft, ChevronRight } from "lucide-react"
 import { format } from "date-fns"
 import * as XLSX from 'xlsx'
-import jsPDF from 'jspdf'
-import 'jspdf-autotable'
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 
 const DataView = ({ title, data, columns, search = false, paginations = false, dateRange = false }: any) => {
     const [searchText, setSearchText] = useState("")
@@ -50,24 +50,27 @@ const DataView = ({ title, data, columns, search = false, paginations = false, d
     const exportToExcel = () => {
         const ws = XLSX.utils.json_to_sheet(filteredData)
         const wb = XLSX.utils.book_new()
+        const date = new Date().toISOString().slice(0, 10)
         XLSX.utils.book_append_sheet(wb, ws, "Transactions")
-        XLSX.writeFile(wb, "transactions.xlsx")
+        XLSX.writeFile(wb, `transactions-${date}.xlsx`)
     }
 
     const exportToPDF = () => {
-        const doc = new jsPDF()
+        const doc = new jsPDF();
+        
         const tableData = filteredData.map((row: any) =>
             columns.map((col: any) => row[col.key])
-        )
-        const headers = columns.map((col: any) => col.text)
+        );
+        const headers = columns.map((col: any) => col.text);
 
-            ; (doc as any).autoTable({
-                head: [headers],
-                body: tableData,
-                startY: 20
-            })
-        doc.save('transactions.pdf')
-    }
+        autoTable(doc, {
+            head: [headers],
+            body: tableData,
+            startY: 20
+        });
+        const date = new Date().toISOString().slice(0, 10)
+        doc.save(`transactions-${date}.pdf`);
+    };
 
     const shareData = async () => {
         if (navigator.share) {
@@ -208,7 +211,7 @@ const DataView = ({ title, data, columns, search = false, paginations = false, d
                             onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
                             disabled={currentPage === 1}
                         >
-                           <ChevronLeft/> Previous
+                            <ChevronLeft /> Previous
                         </Button>
                         <Button
                             variant="outline"
@@ -216,7 +219,7 @@ const DataView = ({ title, data, columns, search = false, paginations = false, d
                             onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
                             disabled={currentPage === totalPages}
                         >
-                           Next <ChevronRight/>
+                            Next <ChevronRight />
                         </Button>
                     </div>
                 </div>
