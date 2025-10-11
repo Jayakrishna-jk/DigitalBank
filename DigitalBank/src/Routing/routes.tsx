@@ -5,6 +5,7 @@ import type { RouteObject } from "react-router-dom";
 import Home from "../pages/Home";
 import BankSummaryTable from "../components/BankSummaryTable";
 import FundTransferForm from "../components/FundTransfer";
+import AccountDetails from "../pages/AccountDetails";
 
 const LoginForm = lazy(() => import("../pages/Login"));
 // const Home = lazy(() => import("../pages/Home"));
@@ -33,6 +34,9 @@ export const router: RouteObject[] = [
         <FundTransferForm />
     )
 
+  },
+  {
+    path: "/account-details/:id", element: (<AccountDetails/>)
   }
 //   {
 //     path: "/unauthorized",
